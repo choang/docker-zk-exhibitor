@@ -8,6 +8,10 @@ DEFAULT_DATA_DIR="/opt/zookeeper/snapshots"
 DEFAULT_LOG_DIR="/opt/zookeeper/transactions"
 DEFAULT_ZK_ENSEMBLE_SIZE=0
 S3_SECURITY=""
+# Borrowed from wurstmeister/kafka
+if [[ -n $HOSTNAME_COMMAND ]]; then
+    HOSTNAME=$(eval $HOSTNAME_COMMAND)
+fi
 HTTP_PROXY=""
 : ${HOSTNAME:?$MISSING_VAR_MESSAGE}
 : ${AWS_REGION:=$DEFAULT_AWS_REGION}
