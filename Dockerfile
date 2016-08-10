@@ -43,4 +43,8 @@ USER root
 WORKDIR /opt/exhibitor
 EXPOSE 2181 2888 3888 8181
 
+RUN apt-get update \
+    && apt-get install -y curl \
+    && apt-get purge -y
+
 ENTRYPOINT ["bash", "-ex", "/opt/exhibitor/wrapper.sh"]
